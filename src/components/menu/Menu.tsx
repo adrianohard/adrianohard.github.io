@@ -6,10 +6,10 @@ export const Menu = (props: React.HTMLAttributes<HTMLElement>) => {
     <nav {...props}>
         <ul>
             <li className='inline hover:underline'>
-                <Link href="/">Skills</Link>
+                <Link href="/skills">Skills</Link>
             </li>
             <li className='inline hover:underline ml-8'>
-                <Link href="/">Sobre mim</Link>
+                <Link href="/about">Sobre mim</Link>
             </li>
         </ul>
     </nav>

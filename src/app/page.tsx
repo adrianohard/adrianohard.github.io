@@ -61,7 +61,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='lg:absolute lg:bottom-16 lg:left-1/2 lg-right-1/2 relative w-full sm:w-auto'>
+      <div className='lg:absolute lg:bottom-16 lg:left-8 relative w-full sm:w-auto'>
         <UserInfo onClick={() => onClickNotification()} />
       </div>
       <div className='absolute sm:right-8 sm:bottom-16 bottom-4 right-0 mx-2 sm:mx-0'>
