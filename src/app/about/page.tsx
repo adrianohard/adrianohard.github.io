@@ -1,6 +1,8 @@
+'use client'
 import Image from 'next/image'
-import { Header, Logo, SocialIcons, UserInfo } from '@/components'
+import { Header, Logo, PushNotification, SocialIcons, UserInfo } from '@/components'
 import './styles.css'
+import { useNotification } from '@/hooks/useNotification'
 
 const courses = [
   {
@@ -62,7 +64,10 @@ const courses = [
 ]
 
 export default function AboutMe() {
+  const { isVisbileNotification, onClickNotification} = useNotification()
+
   return (
+    <div className='relative'>
     <section className="min-h-screen px-4 sm:px-8 py-4 flex flex-col relative max-w-[1920px] mx-auto">
         <Header />
         <div className='mt-16 flex items-center justify-between'>
@@ -94,12 +99,14 @@ export default function AboutMe() {
 
             </div>
             <div className='mt-4 flex justify-between items-center'>
-              <UserInfo type="row" />
+              <UserInfo type="row" onClick={onClickNotification} />
               <SocialIcons />
             </div>
           </div>
           <Image src="/hero-background-about.png" alt='Hero background image' height={600} width={193} className='hidden sm:block' />
         </div>
     </section>
+    <PushNotification onClick={onClickNotification} isVisible={isVisbileNotification} />
+  </div>
   )
 }

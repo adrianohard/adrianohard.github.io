@@ -6,37 +6,28 @@ import { BsFillLaptopFill, BsFillPersonLinesFill } from "react-icons/bs";
 
 
 import Image from 'next/image'
+import { useNotification } from '@/hooks/useNotification';
 export default function Home() {
+  const { isVisbileNotification, onClickNotification} = useNotification()
 
-  const onClickNotification = () => {
-    const notification = document.querySelector('#notification')
-    const notificationEnabled = notification?.classList.contains('enabled')
-
-    if(notificationEnabled) {
-      notification?.classList.add('disabled')
-      setTimeout(() => {
-        notification?.classList.remove('enabled')
-      }, 1000);
-    }
-    else {
-      notification?.classList.remove('disabled')
-      notification?.classList.add('enabled')
-    }
+  const handleDownload = () => {
+    window.open('https://file.io/Tu7SQv4AZtpK', '_blank');
   }
 
-  return (
+  return (    
+    <div className='relative'>
     <main className="min-h-screen px-4 sm:px-8 py-4 flex flex-col items-center relative max-w-[1920px] mx-auto">
       <Header />
       <div className='flex flex-1 items-center justify-center lg:justify-between flex-wrap lg:flex-nowrap lg:mt-0 mt-8 '>
         <section id="hero" className='max-w-sm md:max-w-xl mr-8 flex flex-col justify-center text-center lg:text-left'>
           <h1 className='text-4xl'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          Olá, bem-vindo a minha página pessoal.
           </h1>
           <p className='mt-4 text-light mb-8'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem est rerum nesciunt neque, ullam quae voluptate odit maxime doloribus necessitatibus at incidunt minus quas, dolorum, vitae quidem aut accusantium fugiat.
+            Se você ainda não me conhece, muito prazer, meu nome é Adriano G. Hardtke, sou estudante do curso de ciência da computação e desenvolvedor front-end. 
           </p>
           <div className='max-w-fit m-auto lg:m-0 lg:mb-0 mb-8'>
-            <Button title="Download curriculum" variant="primary" Icon={<BiDownload size="24" className="mr-2" />} />
+            <Button title="Download curriculum" variant="primary" Icon={<BiDownload size="24" className="mr-2" />} onClick={handleDownload} />
             <SocialIcons />
           </div>
         </section>
@@ -45,23 +36,22 @@ export default function Home() {
           <div className='ml-4 sm:flex gap-4 xl:block'>
             <Card
               title="Skills"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa viverra faucibus mattis ac lectus venenatis mauris ultrices."
+              description="Minhas habilidades não são apenas linhas de código; são ferramentas para construir o futuro. Com uma base sólida em desenvolvimento, mergulho em projetos desafiadores, sempre ansioso para aprender e aplicar novas tecnologias"
               Icon={<BsFillLaptopFill />}
             />
             <Card
               title="Quem sou eu"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa viverra faucibus mattis ac lectus venenatis mauris ultrices."
+              description="Apaixonado por transformar ideias em soluções práticas, sou um entusiasta da inovação tecnológica. Seja na resolução de problemas complexos ou na criação de experiências envolventes, meu objetivo é deixar uma marca positiva."
               Icon={<BsFillPersonLinesFill />}
             />
           </div>
         </div>
       </div>
       <div className='lg:absolute lg:bottom-16 lg:left-8 relative w-full sm:w-auto'>
-        <UserInfo type='column' onClick={() => onClickNotification()} />
-      </div>
-      <div className='absolute sm:right-8 sm:bottom-16 bottom-4 right-0 mx-2 sm:mx-0'>
-        <PushNotification onClick={onClickNotification} />
+        <UserInfo type='column' onClick={onClickNotification} />
       </div>
     </main>
+    <PushNotification onClick={onClickNotification} isVisible={isVisbileNotification} />
+    </div> 
   )
 }
