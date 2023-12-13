@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pecita: ['var(--font-pecita)']
+      },
       colors: {
         primary: '#F9F3F0',
         'primary-dark': '#FFA477',

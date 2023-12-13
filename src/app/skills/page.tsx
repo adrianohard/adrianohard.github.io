@@ -61,7 +61,7 @@ export default function Skills() {
     },[selectedSkillType])
 
   return (
-    <section className="min-h-screen px-4 sm:px-8 py-4 flex flex-col relative">
+    <section className="min-h-screen px-4 sm:px-8 py-4 flex flex-col relative max-w-[1920px] mx-auto">
         <Header />
         <div id="my-skills" className="mt-16">
             <h1 className="text-2xl font-bold">Minhas skills</h1>

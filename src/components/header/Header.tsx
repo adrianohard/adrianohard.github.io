@@ -1,13 +1,10 @@
 import React from 'react'
-import { Menu } from '@/components'
-import Link from 'next/link'
+import { Logo, Menu } from '@/components'
 
 export const Header = () => {
   return (
     <div className='flex items-center justify-center w-full'>
-        <h1>
-          <Link href={'/'}>Adriano Hardtke</Link>
-        </h1>
+        <Logo />
         <Menu className='flex-1 text-center' />
     </div>
   )
